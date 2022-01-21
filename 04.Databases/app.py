@@ -1,9 +1,11 @@
 from flask import Flask, render_template, url_for, redirect, flash
 from forms import RegistrationForm, LoginForm
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = '025a5be698d19717aa1f74f29587b39d'  # import secrets -> secrets.token_hex(16)
+db = SQLAlchemy(app)
 
 
 posts = [
