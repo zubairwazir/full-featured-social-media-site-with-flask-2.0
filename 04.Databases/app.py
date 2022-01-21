@@ -3,7 +3,8 @@ from forms import RegistrationForm, LoginForm
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = '025a5be698d19717aa1f74f29587b39d'
+app.config["SECRET_KEY"] = '025a5be698d19717aa1f74f29587b39d'  # import secrets -> secrets.token_hex(16)
+
 
 posts = [
     {
@@ -21,18 +22,18 @@ posts = [
 ]
 
 
-@app.route("/")
-@app.route("/home")
+@app.get("/")
+@app.get("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html', posts=postss)
 
 
-@app.route("/about")
+@app.get("/about")
 def about():
     return render_template('about.html', title='About')
 
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.post("/register")
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -41,11 +42,11 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.post("/login")
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'admin':
+        if form.email.data == 'admin@gmail.com' and form.password.data == 'admin':
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
         else:

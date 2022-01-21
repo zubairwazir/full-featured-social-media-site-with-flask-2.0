@@ -1,9 +1,7 @@
-from flask import Flask, render_template, url_for, redirect, flash
-from forms import RegistrationForm, LoginForm
-
-
-app = Flask(__name__)
-app.config["SECRET_KEY"] = '025a5be698d19717aa1f74f29587b39d'  # import secrets -> secrets.token_hex(16)
+from flask import render_template, url_for, redirect, flash
+from app import app
+from app.forms import RegistrationForm, LoginForm
+from app.models import User, Post
 
 
 posts = [
@@ -21,11 +19,10 @@ posts = [
     }
 ]
 
-
 @app.get("/")
 @app.get("/home")
 def home():
-    return render_template('home.html', posts=postss)
+    return render_template('home.html', posts=posts)
 
 
 @app.get("/about")
@@ -33,7 +30,7 @@ def about():
     return render_template('about.html', title='About')
 
 
-@app.post("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -42,7 +39,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.post("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -52,7 +49,3 @@ def login():
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
-
-
-if "__main__" == __name__:
-    app.run(debug=True)
