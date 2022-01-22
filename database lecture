@@ -1,14 +1,3 @@
-# Flask Tutoring Blog Site
-
-
-### Part 1. basic Setup
-
-### Part 2. Templating
-
-### Part 3. Forms and Validation
-
-### Part 4. Databases
-
 pip install flask-sqlalchemy
 
 provide some useful feature for flask
@@ -60,7 +49,7 @@ for post in user.posts:
         print(post.title)
         
         
-post = Post.query.first()
+post = Post.query.first()        
 post.user_id
 
 post.author # backref concept
@@ -78,25 +67,3 @@ tree module to print architecture of app
 
 
 
-
-### Part 5. Package-Structure
-
-circular error
-
-just create models and it will show import error so it give error at User import
-
-from __main__ import db gives error at db import
-
-
-
-### Part 6. Login-Auth
-
-### Part 7. User-Account-Profile-Picture
-
-### Part 8. Posts
-
-### Part 9. Likes and Comments
-
-### Part 10. Pagination
-
-### Part 11. Password-Reset-Email
