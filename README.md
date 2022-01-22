@@ -90,6 +90,9 @@ from __main__ import db gives error at db import
 
 
 ### Part 6. Login-Auth
+pip install flask-login \
+pip install email-validator \
+from flask_login import LoginManager
 
 ### Part 7. User-Account-Profile-Picture
 
