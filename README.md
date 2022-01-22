@@ -3,73 +3,105 @@
 
 ### Part 1. basic Setup
 
-### Part 2. Templating
+`pip install flask`
+to install flask with all necessary modules type:
+`pip install flask[all]`
+
+import Flask class from flask module
+`From flask import Flask `
+
+create instance of Flask class
+
+`app = Flask(__name__)`
+
+`__name__` means that app instance is in the same(current) module so
+app instance will be only accessed in the same file.
+
+while it also use for path reference like all the templates and static files etc will be 
+referred from this(path where app instance file located) path.
+
+### Part 2. Templates and Static Files
+create `templates` folder in the same project directory.
+
+create `htmls` files and render in from flask app.
+
+Create `static` folder in the same project directory
+and all the `css`, `javascripts` and `media` files will
+be placed here.
 
 ### Part 3. Forms and Validation
 
 ### Part 4. Databases
 
-pip install flask-sqlalchemy
+`pip install flask-sqlalchemy`
 
 provide some useful feature for flask
 
-SQLALCHEMY_DATABASE_URI
+`SQLALCHEMY_DATABASE_URI`
 where is database located
 
-///   for relative path
-////  for absolute path
+`///`   for relative path \
+`////`  for absolute path
 
-def __repr__ 
-dender method or magic method -> how our object will be printed when you printed
+`def __repr__ ` \
+dender method or magic method -> how our object will be printed when we return
 
-import datetime module for current time
+`import datetime module for current time`
 
 nullable false as evey post must have an author
-relationship are not column and it run separate query in background
+relationship are not column, and it runs separate query in background
 
-backref -> create another column named author in post table
-lazy -> return the posts data in one go 
+`backref` -> create another column named author in post table \
+`lazy=True`  return the posts' data in one go 
 
-python
-from app import db
-db.create_all()
+`python` \
+`from app import db` \
+`db.create_all()` 
 
 from app import User, Post #models
 user_1 = User(username="Zubair", email="admin@gmail.com", password="password")
 
-db.session.add(user_1)
+`db.session.add(user_1)`
 
 user_2 = User(username="Zubair", email="admin@gmail.com", password="password")
 
-db.session.add(user_2)
+`db.session.add(user_2)`
 
-db.session.commit()
+`db.session.commit()`
 
-User.query.all()
-User.query.first()
-User.query.filter_by(username='admin').all()
-User.query.filter_by(username='admin').first()
-user=User.query.filter_by(username='admin').first()
-user.id
-user.posts
+`User.query.all()`
+
+`User.query.first()`
+
+`User.query.filter_by(username='admin').all()`
+
+`User.query.filter_by(username='admin').first()`
+`user=User.query.filter_by(username='admin').first()`
+
+`user.id`
+
+`user.posts`
  
-User.query.get(1) # return data with id (condition)
+`User.query.get(1) # return data with id(condition)`
 
-user.posts
-for post in user.posts:
-        print(post.title)
+`user.posts`
+
+`for post in user.posts:
+        print(post.title)`
         
         
-post = Post.query.first()
-post.user_id
+`post = Post.query.first()`
+`post.user_id`
 
-post.author # backref concept
+`post.author # backref concept`
 
-db.drop_all()
-db.create_all()
+`db.drop_all()`
 
-User.query.all()
-Post.query.all()
+`db.create_all()`
+
+`User.query.all()`
+
+`Post.query.all()`
 
 Error
 circular import error
