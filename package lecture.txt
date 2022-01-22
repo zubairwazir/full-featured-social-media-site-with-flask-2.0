@@ -1,7 +1,0 @@
-circular error
-
-just create models and it will show import error so it give error at User import
-
-from __main__ import db gives error at db import
-
-

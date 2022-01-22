@@ -1,13 +1,11 @@
 [tool.poetry]
-name = "flask-tutoring-blog-site"
+name = "flask_social_media_site"
 version = "0.1.0"
 description = ""
-authors = ["Zubair Ahmad"]
+authors = ["zubairwazir <zubairwazir777@gamil.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.0.2"
-MyApplication = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 
